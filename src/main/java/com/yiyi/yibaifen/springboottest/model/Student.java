@@ -6,7 +6,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
-
+/**
+ * 学生类
+ */
 @Data
 @ApiModel(value = "学生主体类")
 public class Student implements Serializable {
