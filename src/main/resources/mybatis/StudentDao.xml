@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yiyi.yibaifen.springboottest.dao.StudentDao">
+
+    <!--查询学生-->
+    <select id="selectStudent" resultType="com.yiyi.yibaifen.springboottest.model.Student">
+        select
+            s_id as studentId,s_name as studentName,s_year as studentYear,s_tel as studentTel,s_num as studentNum,s_type as studentType,s_sex as studentSex,s_state as studentState,s_school as studentSchool,s_class as studentClass,s_pro as studentPro,s_teacher as studentTeacher,s_dorm as studentDorm,s_hobby as studentHobby
+        from students
+    </select>
+
+    <!--删除学生-->
+    <delete id="deleteStudent" parameterType="long">
+        delete from students where s_id = #{id}
+    </delete>
+
+    <!--更新学生-->
+    <update id="updateStudent" parameterType="com.yiyi.yibaifen.springboottest.model.Student">
+        update students set
+        s_name=#{studentName},s_year=#{studentYear},s_tel=#{studentTel},s_num=#{studentNum},s_type=#{studentType},s_sex=#{studentSex},s_state=#{studentState},
+        s_school=#{studentSchool},s_class=#{studentClass},s_pro=#{studentPro},s_teacher=#{studentTeacher},s_dorm=#{studentDorm},s_hobby=#{studentHobby}
+        where s_id = #{studentId}
+    </update>
+
+    <insert id="insertStudent" parameterType="com.yiyi.yibaifen.springboottest.model.Student">
+        insert into students(s_name,s_year,s_tel,s_num,s_type,s_sex,s_state,s_school,s_class,s_pro,s_teacher,s_dorm,s_hobby)
+        VALUES
+        (#{studentName},#{studentYear},#{studentTel},#{studentNum},#{studentType},#{studentSex},#{studentState},#{studentSchool},#{studentClass},#{studentPro},#{studentTeacher},#{studentDorm},#{studentHobby})
+    </insert>
+
+</mapper>
